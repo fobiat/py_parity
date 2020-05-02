@@ -29,18 +29,19 @@ class LOCATION():
     def print_result_folders_destination(self):
         print("You have selected the destination directory: "+ self.destination_folder[0])
 
+# Assign location class.folder variables
+folder_locations = LOCATION()
+fl_source = folder_locations.source_folder
+fl_dest = folder_locations.destination_folder
+
 # Sync based on user input directories
 class SYNC():
-    # Sync variables
-    fl_source = LOCATION.folder_locations.source_directory()
-    fl_dest = folder_locations.destination_directory()
     def user_sync(self):
-        sync(fl_source[0,0],fl_dest[0,0],'sync',verbose=True,content=True,purge=True,create=True)            
-        
-# Assign class variables
-folder_locations = LOCATION()
+        sync(fl_source[0],fl_dest[0],'sync',verbose=True,content=True,purge=False,create=True)            
+ 
+# Assign sync.folder variables
 sync_files = SYNC()
-
+        
 # Call class for user input on directories, then print to console.
 folder_locations.source_directory()
 folder_locations.destination_directory()
@@ -48,5 +49,6 @@ folder_locations.print_result_folders_source()
 folder_locations.print_result_folders_destination()
 # Call class for syncing folders
 sync_files.user_sync()
+print("Thanks for using pyParity. github.com/thattkyle")
 
 
