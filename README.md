@@ -1,6 +1,6 @@
-<h4>py_parity</h4>
+<h2>pyParity</h2>
 <br />
-<b>py_parity synchronises folders.</b><br />
+<b>pyParity synchronises folders.</b><br />
 It can be used across folders, drives, removable media, networked locations and more
 <br />
 <b>Dependencies:</b><br />
