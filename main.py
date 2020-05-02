@@ -1,8 +1,9 @@
-### pyparity v6 1/05/20
+### pyparity 1/05/20
 ### py parity takes folder inputs and clones files to a remote drive
 
 # Invoke mover
 from dirsync import sync
+
 # Folder sync locations
 class LOCATION():
     # Directory variables
@@ -28,21 +29,18 @@ class LOCATION():
     def print_result_folders_destination(self):
         print("You have selected the destination directory: "+ self.destination_folder[0])
 
-#
-
+# Sync based on user input directories
 class SYNC():
     # Sync variables
     fl_source = LOCATION.folder_locations.source_directory()
     fl_dest = folder_locations.destination_directory()
     def user_sync(self):
-#       sync(folder_locations.source_directory, folder_locations.destination_directory,'sync',verbose=True,content=True,purge=True,create=True)
         sync(fl_source[0,0],fl_dest[0,0],'sync',verbose=True,content=True,purge=True,create=True)            
         
-# Class variables
+# Assign class variables
 folder_locations = LOCATION()
 sync_files = SYNC()
-#fl_source = folder_locations.source_directory
-#fl_dest = folder_locations.destination_directory
+
 # Call class for user input on directories, then print to console.
 folder_locations.source_directory()
 folder_locations.destination_directory()
