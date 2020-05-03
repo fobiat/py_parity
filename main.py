@@ -18,10 +18,15 @@ parser.parse_args()
 # Import configparser
 import configparser
 config = configparser.ConfigParser()
+defaults = 'config.ini'
 config.read('config.ini')
 defaults = config['FOLDERS']
+src = config.get('FOLDERS', 'src_folder')
+print(src)
 
-def read_config(filename='config.ini'):
+#ef read_config(FOLDERS):
+#    configfolders = []
+    
     
 
 # Folder sync locations
