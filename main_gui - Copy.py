@@ -3,7 +3,6 @@
 from tkinter import *
 # import menu module
 from tkinter import Menu
-from tkinter import filedialog
 # import webbrowser module
 import webbrowser
 # import logo module
@@ -15,14 +14,15 @@ url = 'http://github.com/thattkyle/py_parity'
 #open website for user help
 def openwebsite():
     webbrowser.open_new(url)
-    
-#button click
-def sourceclicked():
-    folder_src = sourcelbl.configure(filedialog.askdirectory())
-    print(folder_src)
-def destclicked():
-    folder_dst = destlbl.configure(filedialog.askdirectory())
-    
+
+#def logo(self):
+#    self.img = ImageTk.PhotoImage(Image.open("logo.png"))
+#def logo():
+#    load = image.open("logo.png")
+#    render = imageTK.PhotoImage(load)
+#    img = Label(self, image=render)
+#    img.image = render
+#    img.place(x=0, y=0)
 
 #set main.window
 window = Tk()
@@ -38,21 +38,14 @@ menu.help.add_command(label="Help", command = openwebsite)
 menu.help.add_command(label="Quit", command = menu.quit)
 menu.add_cascade(label='File', menu=menu.help)
 
-#add buttons
-#source
-sourcelbl = Label(window, text="Please select source folder")
-sourcelbl.grid(column=0,row=0)
-sourcebtn = Button(window, text="Select", command = sourceclicked)
-sourcebtn.grid(column=1, row=0)
-#destination
-destlbl = Label(window, text="Please select destination folder")
-destlbl.grid(column=0,row=1)
-destbtn = Button(window, text="Select", command = destclicked)
-destbtn.grid(column=1, row=1)
+#create logo
+load = Image.open("logo.png")
+render = ImageTk.PhotoImage(load)
+img = Label(self, image=render)
+img.image = render
+img.place(x=0, y=0)
 
 
-#add filedialog
-#srcfolder = filedialog.askdirectory()
 
 window.config(menu=menu)
 window.mainloop()
