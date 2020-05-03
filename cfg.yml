@@ -1,0 +1,6 @@
+## Use this file to place locations for py-parity
+config:
+      useconfig:
+folders:
+      sourcefolder:
+      destinationfolder:

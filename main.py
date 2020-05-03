@@ -3,6 +3,26 @@
 
 # Invoke mover
 from dirsync import sync
+# Import yaml for config
+#import yaml
+# Import config
+# with open("cfg.yml", r)
+
+# Import argparse for commandline arguments
+import argparse
+# argparse config
+parser = argparse.ArgumentParser(description='Synchronise folders and files between locations.')
+parser.add_argument('-c', '--configfile', default="config.ini",help='Read directories from config')
+parser.parse_args()
+
+# Import configparser
+import configparser
+config = configparser.ConfigParser()
+config.read('config.ini')
+defaults = config['FOLDERS']
+
+def read_config(filename='config.ini'):
+    
 
 # Folder sync locations
 class LOCATION():
