@@ -6,28 +6,7 @@ from dirsync import sync
 # Import yaml for config
 #import yaml
 # Import config
-# with open("cfg.yml", r)
-
-# Import argparse for commandline arguments
-import argparse
-# argparse config
-parser = argparse.ArgumentParser(description='Synchronise folders and files between locations.')
-parser.add_argument('-c', '--configfile', default="config.ini",help='Read directories from config')
-parser.parse_args()
-
-# Import configparser
-import configparser
-config = configparser.ConfigParser()
-defaults = 'config.ini'
-config.read('config.ini')
-defaults = config['FOLDERS']
-src = config.get('FOLDERS', 'src_folder')
-print(src)
-
-#ef read_config(FOLDERS):
-#    configfolders = []
-    
-    
+# with open("cfg.yml", r)    
 
 # Folder sync locations
 class LOCATION():
@@ -74,6 +53,6 @@ folder_locations.print_result_folders_source()
 folder_locations.print_result_folders_destination()
 # Call class for syncing folders
 sync_files.user_sync()
-print("Thanks for using pyParity. github.com/thattkyle")
+print("aa")
 
 
