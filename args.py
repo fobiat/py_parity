@@ -1,5 +1,5 @@
 # args.py
-# takes input from command args and config file
+# Takes input from command args and config file
 
 # Import argparse for commandline arguments
 import argparse
@@ -7,31 +7,49 @@ import argparse
 import configparser
 from configparser import ConfigParser
 
-# configuration class for both
+# configuration class for argsparse, configparser
 class CONFIGURATION():
     # class variables
     src = []
     dst = []
+
     # function to grab folders from config file
+    # if config.ini FOLDERS are empty, asks for user input
     def conf(self):
-        parser = configparser.ConfigParser()
-        parser.read('config.ini')
-        self.src.append(parser.get('FOLDERS', 'src_folder'))
-        self.dst.append(parser.get('FOLDERS', 'dst_folder'))
+        if arg(self) == True:
+            parser = configparser.ConfigParser()
+            parser.read('config.ini')
+        if parser.get('FOLDERS', 'src_folder') == '':
+            print("Source folder not defined in config.ini")
+        else:
+            self.src.append(parser.get('FOLDERS', 'src_folder'))
+        if parser.get('FOLDERS', 'dst_folder') == '':
+            print("Destination folder not defined in config.ini")
+        else:
+            self.dst.append(parser.get('FOLDERS', 'dst_folder'))
+
+    # function to input arguments from commandline
+    def arg(self):
+        ar_parser = argparse.ArgumentParser(add_help=True, description="Sync folder")
+        ar_parser.add_argument('--source', action="store")
+        ar_parser.add_argument('--destination', action="store")
+        ar_parser.add_argument('-c', dest='action', action='store_const', const=CONFIGURATION.conf(self), default=False, help="Uses config file config.ini to input folders automatically.")
+#        ar_parser.add_argument('-c', '--config', dest='action', action=CONFIGURATION.conf(self), const=CONFIGURATION.conf, default=False, help="Uses config file config.ini to input folders automatically.")
+
+#        if args.command == 'config':
+#            CONFIGURATION.conf()       
+        args = ar_parser.parse_args()
+
 configclass = CONFIGURATION()
-configclass.conf()
-print(configclass.src)
-print(configclass.dst)
+configclass.arg()
+#configclass = CONFIGURATION()
+#configclass.arg()
+#configclass.conf()
+#print(configclass.src)
+#print(configclass.dst)
 
-#config = CONFIGURATION()
-#print config.conf.parser.get('FOLDERS', src_folder)
-#print self.parser.get('FOLDERS', dst_folder)
 
-#config = CONFIGURATION()
-#config.conf.src()
-#print(CONFIGURATION.config.src)
-        
-        
+       
     
 
 # argparse config
